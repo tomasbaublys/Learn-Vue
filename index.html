@@ -3,24 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Vue</title>
-
-	<style>
-		.color-red { color: red; }
-		.is-loading { background-color: green; }
-	</style>
-
 </head>
 <body>
 	<div id="root">
 		
-		<h1 :class="className">Hello World</h1>
+		<h1>{{ reversedMessage }}</h1>
 
-		<button v-bind:title="title">Hover Over Me</button>
-		<!-- the same 
-			<button :title="title">Hover Over Me</button>
-		-->
+			<ul>
+				<!-- <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li> -->
+				<li v-for="task in tasks" v-text="task.description"></li>
+			</ul>
 
-		<button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
+		<h2>{{ message2 }}</h2>
+
+			<ul>
+				<!-- <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li> -->
+				<li v-for="task in incompleteTasks" v-text="task.description"></li>
+			</ul>
+
+	
+
+
 
 	</div>
 
@@ -29,15 +32,25 @@
 	<script>
 		var app = new Vue ({
 			el: '#root',
+
 			data: {
-				className: 'color-red',
-				title: 'Now the title is being set through JavaScript.',
-				isLoading: false
+				message: 'All tasks',
+				message2: 'Incomplete tasks',
+				tasks: [
+					{ description: 'Go to the store', completed: true },
+					{ description: 'Finish job', completed: false },
+					{ description: 'Make donation', completed: false },
+					{ description: 'Clear inbox', completed: false },
+					{ description: 'Make dinner', completed: true },
+				]
 			},
 
-			methods: {
-				toggleClass() {
-					this.isLoading = true;
+			computed: {
+				reversedMessage() {
+					return this.message.split('').reverse().join('');
+				},
+				incompleteTasks() {
+					return this.tasks.filter(task => ! task.completed);
 				}
 			}
 		})
