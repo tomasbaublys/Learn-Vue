@@ -3,15 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Vue</title>
+
+	<style>
+		.color-red { color: red; }
+		.is-loading { background-color: green; }
+	</style>
+
 </head>
 <body>
 	<div id="root">
-		<ul>
-			<li v-for="name in names" v-text="name"></li>
-		</ul>
+		
+		<h1 :class="className">Hello World</h1>
 
-		<input type="text" v-model="newName">
-		<button v-on:click="addName">Add Name</button>
+		<button v-bind:title="title">Hover Over Me</button>
+		<!-- the same 
+			<button :title="title">Hover Over Me</button>
+		-->
+
+		<button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
+
 	</div>
 
 	<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
@@ -19,19 +29,17 @@
 	<script>
 		var app = new Vue ({
 			el: '#root',
-
 			data: {
-				newName: '',
-				names: ['Tomas', 'Petras', 'Simas']
+				className: 'color-red',
+				title: 'Now the title is being set through JavaScript.',
+				isLoading: false
 			},
 
 			methods: {
-				addName() {
-					this.names.push(this.newName);
-
-					this.newName = '';
+				toggleClass() {
+					this.isLoading = true;
 				}
-			},
+			}
 		})
 	</script>
 </body>
