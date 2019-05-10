@@ -3,12 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Vue</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style type="text/css">body { padding-top: 40px; } </style>
+
 </head>
 <body>
-	<div id="root">
-		
-		<task-list></task-list>	
+	<div id="root" class="container">
 
+		<message title="Hello World" body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ea aliquid quisquam est itaque minus sed quidem ipsa perferendis assumenda. Quisquam inventore dignissimos nisi expedita est. Illum ducimus, laboriosam odit!" notes="Here is some notes"></message>
+
+		<message title="Hello Universe" body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ea aliquid quisquam est itaque minus sed quidem ipsa perferendis assumenda." notes="Here is some notes"></message>
+		
 	</div>
 
 	<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
