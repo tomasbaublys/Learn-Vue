@@ -16,12 +16,13 @@ Vue.component('modal', {
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title">
-					        Modal title
+				        <h5 lass="modal-title">
+							<slot name="title"></slot>
 					    </h5>
-				      	</div>
-				      	<div class="modal-body"></div>
-
+				      </div>
+				      <div class="modal-body">
+							<slot name="body"></slot>
+						</div>
 				      	<div class="modal-footer">
 							<button type="button" class="btn btn-outline-info" @click="closeModal()"> Close </button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal" @click="submitAndClose()"> Submit </button>
