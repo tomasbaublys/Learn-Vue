@@ -4,37 +4,28 @@
 	<meta charset="UTF-8">
 	<title>Vue</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
 
-	<style type="text/css">
-	.button { padding-top: 40px; }
-	.modal-mask {
-	  position: fixed;
-	  z-index: 9998;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	  background-color: rgba(0, 0, 0, .5);
-	  display: table;
-	  transition: opacity .3s ease;
-	}
+	<style>
+		body { padding-top: 40px; }
 	</style>
 
 </head>
 <body>
 	<div id="root" class="container">
-		<modal>
+		<tabs>
+			<tab name="About Us" :selected="true">
+				<h1>Here is the content for the about us tab</h1>
+			</tab>
 
-			<h3 slot="title">
-				Title
-			</h3>
+			<tab name="About Our Culture">
+				<h1>Here is the content for the about our culture tab</h1>
+			</tab>
 
-			<p slot="body">
-				This is body
-			</p>
-
-		</modal>
+			<tab name="About Our Vision">
+				<h1>Here is the content for the about our vision tab</h1>
+			</tab>
+		</tabs>
 	</div>
 
 	<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
