@@ -13,7 +13,16 @@
 </head>
 <body>
 	<div id="root" class="container">
-		<coupon @applied="onCouponApplied"></coupon>
+		<modal v-if="showModal" @close="showModal = false">
+			<template slot="header">My Title</template>
+
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam inventore tenetur dolores possimus, optio nesciunt maxime veritatis, ipsa suscipit expedita molestias consequatur facilis illum illo error, assumenda. Eos, similique error!
+			<div slot="footer">
+				<button class="button is-success" @click="showModal = false">Save changes</button>
+				<button class="button" @click="showModal = false">Cancel</button>
+			</div>
+		</modal>
+		<a class="button is-success" @click="showModal = true">Show Modal</a>
 	</div>
 
 	<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
