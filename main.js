@@ -1,3 +1,4 @@
+window.Event = new Vue();
 
 Vue.component('coupon', {
 	template: `
@@ -5,7 +6,7 @@ Vue.component('coupon', {
 	`,
 	methods: {
 		onCouponApplied() {
-			this.$emit('applied');
+			Event.$emit('applied');
 		}
 	}
 });
@@ -13,9 +14,11 @@ Vue.component('coupon', {
 new Vue({
 	el: '#root',
 
-	methods: {
-		onCouponApplied() {
-			alert('It was applied!');
-		}
+	data: {
+		onCouponApplied: false
+	},
+
+	created() {
+		Event.$on('applied', () => alert('Handling it!'))
 	}
 });
